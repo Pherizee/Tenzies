@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import uniqid from "uniqid";
 import Confetti from 'react-confetti';
 import Die from "./Die";
+import AnimatedDie from "./AnimatedDie";
 import "./App.css";
 
 function App() {
@@ -56,10 +57,18 @@ function App() {
     })
   )}
 
-  const dieElements = (
+  // const dieElements = (
+  //   <div className="die-container">
+  //     {diceNums.map((dieNum) => {
+  //       return <Die num={dieNum.num} isHeld={dieNum.isHeld} holdDie={() => holdDie(dieNum.id)} key={dieNum.id} />;
+  //     })}
+  //   </div>
+  // );
+
+  const animDieElements = (
     <div className="die-container">
       {diceNums.map((dieNum) => {
-        return <Die num={dieNum.num} isHeld={dieNum.isHeld} holdDie={() => holdDie(dieNum.id)} key={dieNum.id} />;
+        return <AnimatedDie num={dieNum.num} isHeld={dieNum.isHeld} holdDie={() => holdDie(dieNum.id)} key={dieNum.id} />;
       })}
     </div>
   );
@@ -75,7 +84,8 @@ function App() {
           current value between rolls.
         </p>
 
-        {dieElements}
+        {/* {dieElements} */}
+        {animDieElements}
 
         <button onClick={rollDice} className="roll-dice">
           {!tenzies ? `Roll` : `Play Again`}
