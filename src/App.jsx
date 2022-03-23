@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import uniqid from "uniqid";
 import Confetti from 'react-confetti';
-import Die from "./Die";
+import NumDie from "./NumDie";
 import AnimatedDie from "./AnimatedDie";
 import "./App.css";
 
 function App() {
   const [diceNums, setDiceNums] = useState(generateDiceNums());
   const [tenzies, setTenzies] = useState(false);
+  const [gameMode, setGameMode] = useState(null);
   
   useEffect(() => {
     if (diceNums.every(diceNum => diceNum.isHeld === true && 
@@ -57,13 +58,13 @@ function App() {
     })
   )}
 
-  // const dieElements = (
-  //   <div className="die-container">
-  //     {diceNums.map((dieNum) => {
-  //       return <Die num={dieNum.num} isHeld={dieNum.isHeld} holdDie={() => holdDie(dieNum.id)} key={dieNum.id} />;
-  //     })}
-  //   </div>
-  // );
+  const numDieElements = (
+    <div className="die-container">
+      {diceNums.map((dieNum) => {
+        return <NumDie num={dieNum.num} isHeld={dieNum.isHeld} holdDie={() => holdDie(dieNum.id)} key={dieNum.id} />;
+      })}
+    </div>
+  );
 
   const animDieElements = (
     <div className="die-container">
@@ -84,8 +85,10 @@ function App() {
           current value between rolls.
         </p>
 
-        {/* {dieElements} */}
-        {animDieElements}
+        {gameMode === "number" ? 
+          numDieElements :
+          animDieElements
+        }
 
         <button onClick={rollDice} className="roll-dice">
           {!tenzies ? `Roll` : `Play Again`}
