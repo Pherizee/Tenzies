@@ -4,6 +4,7 @@ import Confetti from 'react-confetti';
 import NumDie from "./NumDie";
 import AnimatedDie from "./AnimatedDie";
 import "./App.css";
+import "./Die.css"
 
 function App() {
   const [diceNums, setDiceNums] = useState(generateDiceNums());
@@ -86,8 +87,8 @@ function App() {
         </p>
 
         {gameMode === "number" ? 
-          numDieElements :
-          animDieElements
+          animDieElements:
+          numDieElements
         }
 
         <button onClick={rollDice} className="roll-dice">
