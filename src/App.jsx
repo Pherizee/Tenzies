@@ -9,15 +9,22 @@ function App() {
   const [diceNums, setDiceNums] = useState(generateDiceNums());
   const [tenzies, setTenzies] = useState(false);
   const [gameMode, setGameMode] = useState(null);
-  
+  const [diceElements, setDiceElements] = useState(null);
+
   useEffect(() => {
     if (diceNums.every(diceNum => diceNum.isHeld === true && 
       diceNum.num === diceNums[0].num)) {
       setTenzies(oldTenzies => !oldTenzies);
     }
-  }, [diceNums]);
+    if(gameMode === "numbers") {
+      setDiceElements(numDieElements);
+    }
+    else if(gameMode === "dots") {
+      setDiceElements(animDieElements);
+    }
+  }, [diceNums, gameMode]);
 
-  function generateDie () {
+  function generateDieDetails () {
     return {
       id: uniqid(),
       num: Math.ceil(Math.random() * 6),
@@ -28,7 +35,7 @@ function App() {
   function generateDiceNums() {
     let diceNumsArray = [];
     for (let i = 0; i < 10; i++) {
-      diceNumsArray.push(generateDie());
+      diceNumsArray.push(generateDieDetails());
     }
     return diceNumsArray;
   }
@@ -40,7 +47,7 @@ function App() {
     }
     else {
       setDiceNums(prevDiceNums => prevDiceNums.map(dieNum => {
-        return dieNum.isHeld ? dieNum : generateDie();
+        return dieNum.isHeld ? dieNum : generateDieDetails();
       }))  
     }
 
@@ -57,6 +64,27 @@ function App() {
       )
     })
   )}
+
+  function selectMode(e) {
+    const mode = document.querySelector("#gameMode").checked;
+    if (mode === true) {
+      setGameMode("dots")
+    } else {
+      setGameMode("numbers")
+    }
+  }
+
+  const chooseGameMode = (
+    <div className="game-mode">
+      <p>Choose your game mode</p>
+      <input type="checkbox" id="gameMode" />
+      <label htmlFor="gameMode">
+        <span className="number" role="button" title="This will select numbers as die faces">1</span> 
+        <span className="die" role="button" title="This will select dots as die faces">&#127922;</span>
+      </label>
+      <button onClick={selectMode}>Set mode</button>
+    </div>
+  )
 
   const numDieElements = (
     <div className="die-container">
@@ -85,14 +113,14 @@ function App() {
           current value between rolls.
         </p>
 
-        {gameMode === "number" ? 
-          numDieElements :
-          animDieElements
-        }
+        {!gameMode && chooseGameMode}
+        {diceElements}
 
-        <button onClick={rollDice} className="roll-dice">
-          {!tenzies ? `Roll` : `Play Again`}
-        </button>
+        {gameMode && 
+          <button onClick={rollDice} className="roll-dice">
+            {!tenzies ? `Roll` : `Play Again`}
+          </button>
+        }
       </div>
     </div>
   );

@@ -4,14 +4,17 @@ import "./Die.css"
 
 const AnimatedDie = ({ num, isHeld, holdDie }) => {
   const [presentClass, setPresentClass] = useState("");
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setPresentClass(`show__${num}`);
+      console.log("done")
+    }, 500)
+  }, [num])
 
   const styles = {
     backgroundColor: isHeld ? "#59e391" : "#fff",
   };
-
-  useEffect(() => {
-    setPresentClass(`show__${num}`)
-  }, [num])
 
   function generateDots(iter) {
     const dots = [];

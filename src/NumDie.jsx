@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import uniqid from "uniqid"
 
 const NumDie = ({ num, isHeld, holdDie }) => {
   const [presentClass, setPresentClass] = useState("");
@@ -20,7 +21,7 @@ const NumDie = ({ num, isHeld, holdDie }) => {
   }
 
   const fullDie = [
-    <div className={`anim__die ${presentClass}`}>
+    <div className={`anim__die ${presentClass}`} key={uniqid()}>
       {generateFullDie()}
     </div>
   ]
