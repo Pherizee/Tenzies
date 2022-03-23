@@ -14,7 +14,7 @@
   
   transform-style: preserve-3d;
   transform: translateZ(-25px);
-  transition: transform .7s;
+  transition: transform .3s;
   
   font-size: 1.4em;
   font-weight: 700;
@@ -91,9 +91,8 @@
 
 /* different die faces dots*/
 .die__face-dot1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 }
 
 .die__face-dot2 {

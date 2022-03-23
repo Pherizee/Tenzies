@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import uniqid from "uniqid"
+import uniqid from 'uniqid';
 
 const NumDie = ({ num, isHeld, holdDie }) => {
   const [presentClass, setPresentClass] = useState("");
