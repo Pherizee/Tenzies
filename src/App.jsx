@@ -82,7 +82,7 @@ function App() {
         <span className="number" role="button" title="This will select numbers as die faces">1</span> 
         <span className="die" role="button" title="This will select dots as die faces">&#127922;</span>
       </label>
-      <button onClick={selectMode}>Set mode</button>
+      <button className="set-mode" onClick={selectMode}>Set mode</button>
     </div>
   )
 

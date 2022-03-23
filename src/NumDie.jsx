@@ -15,7 +15,7 @@ const NumDie = ({ num, isHeld, holdDie }) => {
   function generateFullDie() {
     const fullDie = []
     for(let i = 1; i < 7; i++) {
-      fullDie.push(<div className={`die__face die__face__${i} die__face-num`} style={styles}>{i}</div>);
+      fullDie.push(<div className={`die__face die__face__${i} die__face-num`} style={styles} key={uniqid()}>{i}</div>);
     }
     return fullDie;
   }

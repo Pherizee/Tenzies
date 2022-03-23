@@ -122,7 +122,8 @@
   cursor: pointer;
 }
 
-.roll-dice {
+.roll-dice,
+.set-mode {
   display: block;
   padding: 10px 28px;
   border: none;

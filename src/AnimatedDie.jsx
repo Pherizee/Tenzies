@@ -4,12 +4,9 @@ import "./Die.css"
 
 const AnimatedDie = ({ num, isHeld, holdDie }) => {
   const [presentClass, setPresentClass] = useState("");
-  
+
   useEffect(() => {
-    setTimeout(() => {
-      setPresentClass(`show__${num}`);
-      console.log("done")
-    }, 500)
+    setPresentClass(`show__${num}`)
   }, [num])
 
   const styles = {
@@ -23,7 +20,6 @@ const AnimatedDie = ({ num, isHeld, holdDie }) => {
     }
     return dots;
   }
-
 
   const fullDie = [
     <div className={`anim__die ${presentClass}`} key={uniqid()}>
