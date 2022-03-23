@@ -1,5 +1,5 @@
 .die__container {
-  width: 72px;
+  width: 50px;
   aspect-ratio: 1;
   perspective: 100px;
 }
@@ -7,13 +7,13 @@
 .anim__die {
   position: relative;
   
-  width: 72px;
+  width: 50px;
   aspect-ratio: 1;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   
   transform-style: preserve-3d;
-  transform: translateZ(-36px);
+  transform: translateZ(-25px);
   transition: transform .7s;
   
   font-size: 1.4em;
@@ -25,8 +25,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 72px;
-  height: 72px;
+  width: 50px;
+  height: 50px;
   padding: .3em;
   background-color: #fff;
   border-radius: 10%;
@@ -35,52 +35,52 @@
 
 /* animation to show different faces */
 .anim__die.show__1 {
-  transform: translateZ(-36px) rotateY(0deg);
+  transform: translateZ(-25px) rotateY(0deg);
 }
 
 .anim__die.show__2 {
-  transform: translateZ(-36px) rotateY(-90deg);
+  transform: translateZ(-25px) rotateY(-90deg);
 }
 
 .anim__die.show__3 {
-  transform: translateZ(-36px) rotateX(90deg);
+  transform: translateZ(-25px) rotateX(90deg);
 }
 
 .anim__die.show__4 {  
-  transform: translateZ(-36px) rotateX(-90deg);
+  transform: translateZ(-25px) rotateX(-90deg);
 }
 
 .anim__die.show__5 { 
-  transform: translateZ(-36px) rotateY(90deg);
+  transform: translateZ(-25px) rotateY(90deg);
 }
 
 .anim__die.show__6 {
-  transform: translateZ(-36px) rotateY(-180deg);
+  transform: translateZ(-25px) rotateY(-180deg);
 }
 
 /* cube effect for different die faces */
 .die__face__1 {
-  transform: rotateY(0deg) translateZ(36px);
+  transform: rotateY(0deg) translateZ(25px);
 }
 
 .die__face__2 {
-  transform: rotateY(90deg) translateZ(36px);
+  transform: rotateY(90deg) translateZ(25px);
 }
 
 .die__face__3 {
-  transform: rotateX(-90deg) translateZ(36px);
+  transform: rotateX(-90deg) translateZ(25px);
 }
 
 .die__face__4 {  
-  transform: rotateX(90deg) translateZ(36px);
+  transform: rotateX(90deg) translateZ(25px);
 }
 
 .die__face__5 { 
-  transform: rotateY(-90deg) translateZ(36px);
+  transform: rotateY(-90deg) translateZ(25px);
 }
 
 .die__face__6 {
-  transform: rotateY(180deg) translateZ(36px);
+  transform: rotateY(180deg) translateZ(25px);
 }
 
 /* die faces numbers */

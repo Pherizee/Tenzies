@@ -22,7 +22,7 @@ const AnimatedDie = ({ num, isHeld, holdDie }) => {
   }
 
   const fullDie = [
-    <div className={`anim__die ${presentClass}`} key={uniqid()}>
+    <div className={`anim__die ${presentClass}`}>
       <div className="die__face die__face__1 die__face-dot1" style={styles}>
         {generateDots(1)}
       </div>

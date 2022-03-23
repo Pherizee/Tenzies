@@ -21,7 +21,7 @@ const NumDie = ({ num, isHeld, holdDie }) => {
   }
 
   const fullDie = [
-    <div className={`anim__die ${presentClass}`} key={uniqid()}>
+    <div className={`anim__die ${presentClass}`}>
       {generateFullDie()}
     </div>
   ]
