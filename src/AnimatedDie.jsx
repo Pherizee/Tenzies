@@ -4,13 +4,13 @@ import uniqid from 'uniqid';
 const AnimatedDie = ({ num, isHeld, holdDie }) => {
   const [presentClass, setPresentClass] = useState("");
 
-  const styles = {
-    backgroundColor: isHeld ? "#59e391" : "#fff",
-  };
-
   useEffect(() => {
     setPresentClass(`show__${num}`)
   }, [num])
+
+  const styles = {
+    backgroundColor: isHeld ? "#59e391" : "#fff",
+  };
 
   function generateDots(iter) {
     const dots = [];
@@ -19,7 +19,6 @@ const AnimatedDie = ({ num, isHeld, holdDie }) => {
     }
     return dots;
   }
-
 
   const fullDie = (
     <div className={`anim__die ${presentClass}`}>
