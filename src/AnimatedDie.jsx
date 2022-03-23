@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
-import "./Die.css"
 
 const AnimatedDie = ({ num, isHeld, holdDie }) => {
   const [presentClass, setPresentClass] = useState("");
@@ -22,7 +21,7 @@ const AnimatedDie = ({ num, isHeld, holdDie }) => {
   }
 
 
-  const fullDie = [
+  const fullDie = (
     <div className={`anim__die ${presentClass}`}>
       <div className="die__face die__face__1 die__face-dot1" style={styles}>
         {generateDots(1)}
@@ -43,7 +42,7 @@ const AnimatedDie = ({ num, isHeld, holdDie }) => {
         {generateDots(6)}
       </div>
     </div>
-  ]
+  )
   
   return (
     <div className="die__container" onClick={holdDie}>
